@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,16 +15,16 @@ public class Brick : MonoBehaviour
         switch (PointValue)
         {
             case 1 :
-                block.SetColor("_BaseColor", Color.green);
+                block.SetColor("_BaseColor", Color.cyan);
                 break;
             case 2:
-                block.SetColor("_BaseColor", Color.yellow);
-                break;
-            case 5:
                 block.SetColor("_BaseColor", Color.blue);
                 break;
+            case 5:
+                block.SetColor("_BaseColor", Color.magenta);
+                break;
             default:
-                block.SetColor("_BaseColor", Color.red);
+                block.SetColor("_BaseColor", Color.cyan);
                 break;
         }
         renderer.SetPropertyBlock(block);
@@ -38,6 +35,6 @@ public class Brick : MonoBehaviour
         onDestroyed.Invoke(PointValue);
         
         //slight delay to be sure the ball have time to bounce
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject, 0.1f);
     }
 }
