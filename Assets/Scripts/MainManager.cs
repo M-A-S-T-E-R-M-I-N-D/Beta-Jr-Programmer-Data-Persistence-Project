@@ -19,8 +19,9 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         ScoreText.text = $"{GameManager.GM.GetName()} : Score : {m_Points}";
+        HighScoreText.text = GameManager.GM.GetHighscoreString();
 
-        const float step = 0.6f;
+    const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
         int[] pointCountArray = new [] {1,1,2,2,5,5};
@@ -55,7 +56,7 @@ public class MainManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                ScenesManager.SM.LoadScene(1);
+                ScenesManager.SM.LoadScene(0);
             }
         }
     }
@@ -64,10 +65,18 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"{GameManager.GM.GetName()} : Score : {m_Points}";
+
+        if (m_Points > GameManager.GM.GetHighscore())
+        {
+            GameManager.GM.SetHighScore($"Highscore : {GameManager.GM.GetName()} : {m_Points}", m_Points);
+            HighScoreText.text = $"Highscore : {GameManager.GM.GetName()} : {m_Points}";
+        }
+        else return;
     }
 
     public void GameOver()
     {
+        GameManager.GM.SaveHighscore();
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
