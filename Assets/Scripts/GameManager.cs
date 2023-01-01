@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
         public int highscore;
     }
 
+    public void FlushScores()
+    {
+        File.WriteAllText(Application.persistentDataPath + "highscores.json", "{}");
+        LoadHighscore();
+    }
+
     public void SaveHighscore()
     {
         SaveData data = new SaveData();

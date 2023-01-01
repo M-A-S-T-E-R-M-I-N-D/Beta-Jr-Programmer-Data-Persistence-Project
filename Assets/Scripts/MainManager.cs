@@ -65,17 +65,15 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"{GameManager.GM.GetName()} : Score : {m_Points}";
+    }
 
+    public void GameOver()
+    {
         if (m_Points > GameManager.GM.GetHighscore())
         {
             GameManager.GM.SetHighScore($"Highscore : {GameManager.GM.GetName()} : {m_Points}", m_Points);
             HighScoreText.text = $"Highscore : {GameManager.GM.GetName()} : {m_Points}";
         }
-        else return;
-    }
-
-    public void GameOver()
-    {
         GameManager.GM.SaveHighscore();
         m_GameOver = true;
         GameOverText.SetActive(true);
