@@ -425,7 +425,7 @@ MonoBehaviour:
   LineCount: 6
   Ball: {fileID: 177912862}
   ScoreText: {fileID: 188020406}
-  HighScoreText: {fileID: 2078529056}
+  HighscoreText: {fileID: 2078529056}
   GameOverText: {fileID: 474497238}
 --- !u!1 &176431657
 GameObject:
@@ -656,7 +656,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score : 0'
+  m_Text: 
 --- !u!222 &188020407
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1289,7 +1289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Highscore : <Name> : <Score>'
+  m_Text: 
 --- !u!222 &2078529057
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
-    public Text HighScoreText;
+    public Text HighscoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
@@ -19,9 +19,9 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         ScoreText.text = $"{GameManager.GM.GetName()} : Score : {m_Points}";
-        HighScoreText.text = GameManager.GM.GetHighscoreString();
+        SetHighestScore();
 
-    const float step = 0.6f;
+        const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
         int[] pointCountArray = new [] {1,1,2,2,5,5};
@@ -69,13 +69,25 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (m_Points > GameManager.GM.GetHighscore())
+        if (m_Points > HighscoreManager.instance.GetLowestScore())
         {
-            GameManager.GM.SetHighScore($"Highscore : {GameManager.GM.GetName()} : {m_Points}", m_Points);
-            HighScoreText.text = $"Highscore : {GameManager.GM.GetName()} : {m_Points}";
+            HighscoreManager.instance.AddHighscoreEntry(GameManager.GM.GetName(), m_Points);
+            HighscoreManager.instance.SortHighscores();
+            SetHighestScore();
+            HighscoreManager.instance.SaveHighscores();
         }
-        GameManager.GM.SaveHighscore();
         m_GameOver = true;
         GameOverText.SetActive(true);
+    }
+
+    public void SetHighestScore()
+    {
+        // Get the highest score and name
+        int highestScore;
+        string highestScoreName;
+        HighscoreManager.instance.GetHighestScore(out highestScore, out highestScoreName);
+
+        // Update the Text component with the highest score and name
+        HighscoreText.text = highestScoreName + " : " + highestScore;
     }
 }
