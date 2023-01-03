@@ -5,6 +5,9 @@ https://www.xn--pxa.vision/
 ## Submission: Data persistence in a new repo
 https://learn.unity.com/tutorial/submission-data-persistence-in-a-new-repo
 
+## Unity Learn Submission:
+https://learn.unity.com/submission/63b2f3aeedbc2a021109c94f
+
 This project is part of the Unity Learn Junior Programmer Pathway.
 
 ## Join my Unity Learn Journey @YouTube
