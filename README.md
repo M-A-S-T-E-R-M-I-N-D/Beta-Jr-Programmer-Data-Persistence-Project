@@ -7,8 +7,10 @@ https://learn.unity.com/tutorial/submission-data-persistence-in-a-new-repo
 
 ## Unity Learn Submission:
 https://learn.unity.com/submission/63b2f3aeedbc2a021109c94f
-
 This project is part of the Unity Learn Junior Programmer Pathway.
+
+https://play.unity.com/u/MASTERMlND
+Play for free at Unity Play platform.
 
 ## Join my Unity Learn Journey @YouTube
 https://www.youtube.com/watch?v=l5s9mg4HUsE&list=PL1NrJwdQEAA8lexpq9QHl7U96vNjiqsZT
