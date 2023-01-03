@@ -56,6 +56,17 @@ public class HighscoreManager : MonoBehaviour
             string jsonString = File.ReadAllText(saveFileName);
             JsonUtility.FromJsonOverwrite(jsonString, this);
         }
+        else
+        {
+            highscores = new List<HighscoreEntry>()
+            {
+                new HighscoreEntry { name = "Alice", score = 5 },
+                new HighscoreEntry { name = "Bob", score = 4 },
+                new HighscoreEntry { name = "Charlie", score = 3 },
+                new HighscoreEntry { name = "Dave", score = 2 },
+                new HighscoreEntry { name = "Eve", score = 1 },
+            };
+        }
     }
 
     // A method to reset the highscores to the default values
